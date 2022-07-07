@@ -134,8 +134,13 @@ a:focus-visible {
   outline: none;
 }
 
-a:focus, a:visited {
+a:focus {
   color: var(--primary);
+  transition: color 0.3s ease-in-out;
+}
+
+a:visited {
+  color: inherit;
 }
 
 ul, ol {
@@ -453,17 +458,20 @@ textarea:focus-visible {
   color: var(--black);
   background: var(--primary);
   border-color: var(--primary);
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
 .btn-primary-light:hover {
   color: var(--white);
   background: var(--primary_light);
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 
 .btn-primary-light:active {
   color: var(--white);
   background: var(--primary_shade);
   border-color: var(--primary_shade);
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
 .btn-default {
@@ -546,6 +554,7 @@ textarea:focus-visible {
 
 .social-links-icon path {
   fill: var(--grey);
+  transition: fill 0.3s ease-in-out;
 }
 
 .social-links-icon:focus {
@@ -554,14 +563,17 @@ textarea:focus-visible {
 
 .social-links-icon:focus path {
   fill: var(--primary_light);
+  transition: fill 0.3s ease-in-out;
 }
 
 .social-links-icon:hover path {
   fill: var(--primary);
+  transition: fill 0.3s ease-in-out;
 }
 
 .social-links-icon:active path {
   fill: var(--primary_shade);
+  transition: fill 0.3s ease-in-out;
 }
 
 .default-link {
@@ -659,6 +671,7 @@ textarea:focus-visible {
   padding: 30px 32px;
   z-index: 2;
 
+  color: var(--black);
   background: var(--white);
   -webkit-transition: left 0.3s ease-in-out;
   -o-transition: left 0.3s ease-in-out;
@@ -764,18 +777,22 @@ textarea:focus-visible {
 
 .archive-btn-icon path {
   fill: var(--grey);
+  transition: fill 0.3s ease-in-out;
 }
 
 .archive-btn:focus path {
   fill: var(--primary_light);
+  transition: fill 0.3s ease-in-out;
 }
 
 .archive-btn:hover path {
   fill: var(--primary);
+  transition: fill 0.3s ease-in-out;
 }
 
 .archive-btn:active path {
   fill: var(--primary_shade);
+  transition: fill 0.3s ease-in-out;
 }
 
 .archive-text-wrap__desc {
@@ -943,14 +960,17 @@ textarea:focus-visible {
 
 .burger:hover span {
   background-color: var(--primary_light);
+  transition: background-color 0.3s ease-in-out;
 }
 
 .burger:focus-visible span {
   background-color: var(--primary_light);
+  transition: background-color 0.3s ease-in-out;
 }
 
 .burger:active span {
   background-color: var(--primary_shade);
+  transition: background-color 0.3s ease-in-out;
 }
 
 .header__form-search {
@@ -1007,14 +1027,18 @@ textarea:focus-visible {
 
 .form-search__btn-search:hover svg path {
   stroke: var(--primary_light);
+  transition: stroke 0.3s ease-in-out;
 }
 
 .form-search__btn-search:focus-visible svg path {
   stroke: var(--primary_light);
+  transition: stroke 0.3s ease-in-out;
 }
 
 .form-search__btn-search:active svg path {
   stroke: var(--primary_shade);
+  transition: stroke 0.3s ease-in-out;
+
 }
 
 .form-search__input-search:focus {
@@ -1025,8 +1049,9 @@ textarea:focus-visible {
   border-bottom: 1px solid var(--primary);
   background: var(--white);
   cursor: inherit;
-}
 
+  transition: all 0.3s ease-in-out;
+}
 /*------------------*/
 
 
@@ -1200,6 +1225,9 @@ textarea:focus-visible {
 
 .card-main__title {
   margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-main__author {
@@ -1396,6 +1424,12 @@ textarea:focus-visible {
 .choices__list[aria-expanded] .choices__item--selectable {
   padding: 10px 15px;
   color: var(--grey);
+  border-bottom: 1px solid var(--light_grey);
+}
+
+.choices__list--dropdown .choices__item--selectable,
+.choices__list[aria-expanded] .choices__item--selectable:nth-child() {
+  border-bottom: none;
 }
 
 .choices__list--dropdown .choices__item--selectable::after,
@@ -1422,18 +1456,24 @@ textarea:focus-visible {
 .choices__inner {
   border: none;
   background: var(--light_grey);
+
+  transition: border 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 
 .choices:focus-within .choices__inner {
   border: 1px solid var(--primary);
+  transition: border 0.3s ease-in-out;
 }
 
 .choices__inner:hover {
   background: rgba(230, 232, 236, 0.4);
+  transition: background 0.3s ease-in-out;
 }
 
 .choices__inner:active {
   background: var(--grey_shade);
+  transition: background 0.3s ease-in-out;
+
 }
 
 .is-open .choices__inner {
@@ -1476,20 +1516,8 @@ textarea:focus-visible {
   background: var(--white);
 }
 
-.choices__list--dropdown .choices__item--selectable.is-highlighted,
-.choices__list[aria-expanded] .choices__item--selectable.is-highlighted:focus {
-  background: var(--primary_light);
-}
-
-.choices__list--dropdown .choices__item--selectable.is-highlighted,
-.choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
-  background: var(--grey_40);
-  color: var(--black);
-}
-
-.choices__list--dropdown .choices__item--selectable.is-highlighted,
-.choices__list[aria-expanded] .choices__item--selectable.is-highlighted:active {
-  background: var(--light_grey);
+.is-selected {
+  display: none;
 }
 
 .broadcast-cards-list {
@@ -1727,6 +1755,8 @@ textarea:focus-visible {
 }
 
 .playlists-list__item {
+  max-width: 160px;
+
   -webkit-transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
   -o-transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
@@ -1857,6 +1887,7 @@ textarea:focus-visible {
   padding: 10px 9px;
 
   border: 1px solid var(--light_grey);
+  word-wrap: break-word;
 }
 
 .playlist-desc-wrap__title {
@@ -1945,7 +1976,8 @@ textarea:focus-visible {
   color: var(--white);
 }
 
-.radio-info__product-name {
+.radio-info__product-name,
+.radio-info__product-name:visited {
   color: var(--promo);
 }
 
@@ -2140,11 +2172,13 @@ textarea:focus-visible {
 .worker-name {
   font-weight: 500;
   line-height: 18px;
+  word-wrap: break-word;
   color: var(--white);
 }
 
 .worker-desc {
   line-height: 16px;
+  word-wrap: break-word;
   color: var(--grey);
 }
 
@@ -2226,6 +2260,7 @@ textarea:focus-visible {
 .just-validate-error-field:focus-visible {
   border: 1px solid var(--red);
   border-radius: 40px;
+  transition: border 0.3s ease-in-out;
 }
 
 .send-btn {
@@ -2425,11 +2460,14 @@ textarea:focus-visible {
   -webkit-box-shadow: inset 0 0 0 2px var(--primary);
   box-shadow: inset 0 0 0 2px var(--primary);
   background-color: var(--grey_shade);
+
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .radio-text:hover:before {
   -webkit-box-shadow: inset 0 0 0 2px var(--primary);
   box-shadow: inset 0 0 0 2px var(--primary);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .radio-group-wrap {
@@ -2540,6 +2578,7 @@ textarea:focus-visible {
   width: 100%;
 
   border-top: 1px solid var(--primary_light);
+  transition: border 0.3s ease-in-out;
 }
 
 .ui-accordion-header-active::after {
@@ -2550,23 +2589,31 @@ textarea:focus-visible {
   height: 1px;
 
   background: var(--primary_light);
+  transition: border 0.3s ease-in-out;
+}
 
+.quests-list__item {
+  transition: background 0.3s ease-in-out;
 }
 
 .quests-list__item:focus {
   background: #403f63;
+  transition: background 0.3s ease-in-out;
 }
 
 .quests-list__item_close:focus::before {
   border-top: 1px solid var(--grey);
+  transition: border 0.3s ease-in-out;
 }
 
 .quests-list__item_close:focus + *::before {
   border-top: 1px solid var(--grey);
+  transition: border 0.3s ease-in-out;
 }
 
 .quests-list__item_close:last-child:focus::after {
   border-bottom: 1px solid var(--grey);
+  transition: border 0.3s ease-in-out;
 }
 
 .quests-list__item:active .question-text {
@@ -2720,26 +2767,32 @@ span.ui-accordion-header-icon,
 
 .quests-list__item:focus svg {
   fill: var(--primary_shade);
+  transition: fill 0.3s ease-in-out;
 }
 
 .quests-list__item:focus circle,
 .quests-list__item:focus path {
   stroke: var(--grey);
+  transition: stroke 0.3s ease-in-out;
 }
 
 .quests-list__item:hover circle,
 .quests-list__item:hover path {
   stroke: var(--primary_light);
+  transition: stroke 0.3s ease-in-out;
 }
 
 .quests-list__item:active svg {
   fill: var(--primary_light);
+  transition: fill 0.3s ease-in-out;
 }
 
 .quests-list__item:active circle {
   stroke: var(--primary_light);
+  transition: stroke 0.3s ease-in-out;
 }
 
 .quests-list__item:active path {
   stroke: var(--white);
+  transition: stroke 0.3s ease-in-out;
 }
